@@ -143,3 +143,13 @@ a{ color:inherit; text-decoration:none; }
 @media (max-width: 860px){
   .hero{ grid-template-columns: 1fr; }
   .g
+/* FIX: Sayfa soluk görünüyorsa (opacity/filter hatası) */
+html, body, main, header, section, article, div {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.card, .hero, .grid, .container {
+  opacity: 1 !important;
+}
+
