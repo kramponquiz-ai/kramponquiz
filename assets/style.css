@@ -152,4 +152,18 @@ html, body, main, header, section, article, div {
 .card, .hero, .grid, .container {
   opacity: 1 !important;
 }
+/* --- FIX: site soluk/şeffaf görünüyorsa --- */
+html, body, main, header, section, article, div,
+.card, .container, .hero, .grid {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Arka plan + yazı rengi garanti */
+body{
+  background: #071727 !important;
+  color: #eaf1ff !important;
+}
+
+
 
