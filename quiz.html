@@ -1,116 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Krampon Quiz | Yarışma</title>
-  <meta name="description" content="Zorluk seçerek futbol bilgi yarışmasına başla. Soruları çöz, skorunu paylaş, tekrar oyna." />
-  <link rel="canonical" href="https://kramponquiz-ai.github.io/kramponquiz/sinav.html" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <meta charset="UTF-8">
+  <title>Krampon Quiz – Oyun</title>
 </head>
-<body class="bg">
-  <header class="topbar">
-    <a class="brand" href="index.html"><span class="brand__logo" aria-hidden="true">⚽</span><span class="brand__name">Krampon Quiz</span></a>
-    <nav class="nav">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="kurallar.html">Kurallar</a>
-      <a href="SSS.html">SSS</a>
-    </nav>
-  </header>
+<body>
 
-  <main class="container">
-    <section class="card">
-      <h1>Yarışma</h1>
-      <p class="lead">Zorluk seç → soruları çöz → skorunu paylaş.</p>
-    </section>
+  <h1>Krampon Quiz</h1>
 
-    <!-- Reklam alanı (üst) -->
-    <section class="ad card" aria-label="Reklam Alanı">
-      <p class="ad__title">Reklam Alanı</p>
-      <p class="ad__hint">Onay sonrası buraya reklam yerleştirilecek.</p>
-    </section>
+  <button id="startBtn">Hemen Oyna</button>
 
-    <section class="card quiz" id="quizApp">
-      <div class="quiz__setup" id="setup">
-        <h2>Başlamadan önce</h2>
-        <label class="field">
-          <span>Zorluk</span>
-          <select id="difficulty">
-            <option value="kolay">Kolay</option>
-            <option value="orta" selected>Orta</option>
-            <option value="zor">Zor</option>
-          </select>
-        </label>
+  <div id="game" style="display:none;">
+    <h2>Soru 1</h2>
+    <p>Futbolun kralı kimdir?</p>
 
-        <label class="field">
-          <span>Soru Sayısı</span>
-          <select id="questionCount">
-            <option value="10">10</option>
-            <option value="15" selected>15</option>
-            <option value="20">20</option>
-          </select>
-        </label>
+    <button onclick="alert('Doğru!')">Pelé</button>
+    <button onclick="alert('Yanlış')">Messi</button>
+    <button onclick="alert('Yanlış')">Ronaldo</button>
+  </div>
 
-        <button class="btn primary" id="startBtn">Başlat</button>
-        <p class="muted small">Not: Sorular karıştırılır, her oyunda sıra değişir.</p>
-      </div>
-
-      <div class="quiz__play hidden" id="play">
-        <div class="quiz__meta">
-          <span id="qPos">1/15</span>
-          <span class="pill" id="diffPill">Orta</span>
-          <span id="score">Skor: 0</span>
-        </div>
-
-        <h2 class="quiz__question" id="questionText">Soru</h2>
-
-        <div class="quiz__answers" id="answers"></div>
-
-        <div class="quiz__actions">
-          <button class="btn ghost" id="quitBtn">Çık</button>
-          <button class="btn ghost" id="nextBtn" disabled>Devam</button>
-        </div>
-      </div>
-
-      <div class="quiz__result hidden" id="result">
-        <h2>Oyun Bitti</h2>
-        <p class="lead" id="resultText"></p>
-        <div class="ctaRow">
-          <button class="btn primary" id="retryBtn">Tekrar Oyna</button>
-          <a class="btn ghost" href="index.html">Ana Sayfa</a>
-        </div>
-
-        <div class="divider"></div>
-
-        <h3>İçeriklere göz at</h3>
-        <p class="muted">Kullanıcıların sitede kalması için bu bölümler önemli (AdSense için de).</p>
-        <div class="grid3">
-          <a class="card card--link" href="futbol-terimleri.html"><strong>Terimler</strong><span class="muted">Kısa tanımlar</span></a>
-          <a class="card card--link" href="efsane-futbolcular.html"><strong>Efsaneler</strong><span class="muted">Kısa biyografi</span></a>
-          <a class="card card--link" href="futbol-bilgileri.html"><strong>Bilgiler</strong><span class="muted">Rekorlar & kupalar</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Reklam alanı (alt) -->
-    <section class="ad card" aria-label="Reklam Alanı">
-      <p class="ad__title">Reklam Alanı</p>
-      <p class="ad__hint">Onay sonrası buraya reklam yerleştirilecek.</p>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer__links">
-      <a href="hakkimizda.html">Hakkımızda</a>
-      <a href="iletisim.html">İletişim</a>
-      <a href="gizlilik.html">Gizlilik</a>
-      <a href="cookies.html">Çerezler</a>
-      <a href="sartlar.html">Şartlar</a>
-    </div>
-    <p class="muted">© <span id="y"></span> Krampon Quiz</p>
-  </footer>
-
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-  <script src="assets/app.js"></script>
+  <script src="assets/quiz.js"></script>
 </body>
 </html>
