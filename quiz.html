@@ -1,135 +1,116 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Krampon Quiz | Oyun</title>
-  <meta name="description" content="Krampon Quiz oyun sayfası: Kolay/Orta/Zor/Karışık modda 15 soru."/>
-  <link rel="stylesheet" href="assets/style.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Krampon Quiz | Yarışma</title>
+  <meta name="description" content="Zorluk seçerek futbol bilgi yarışmasına başla. Soruları çöz, skorunu paylaş, tekrar oyna." />
+  <link rel="canonical" href="https://kramponquiz-ai.github.io/kramponquiz/sinav.html" />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body>
-  <div class="overlay"></div>
-
-  <div class="container" id="quizRoot">
+<body class="bg">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand__logo" aria-hidden="true">⚽</span><span class="brand__name">Krampon Quiz</span></a>
     <nav class="nav">
-      <div class="brand">
-        <div class="logo"></div>
-        <div>
-          <b>Krampon Quiz</b>
-          <span>15 soruluk futbol bilgi yarışması</span>
-        </div>
-      </div>
-      <div class="links">
-        <a href="index.html">Anasayfa</a>
-        <a href="rules.html">Kurallar</a>
-        <a href="faq.html">SSS</a>
-        <a href="contact.html">İletişim</a>
-      </div>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="kurallar.html">Kurallar</a>
+      <a href="SSS.html">SSS</a>
     </nav>
+  </header>
 
-    <div class="hero" style="margin-top:16px">
-      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between; align-items:center">
-        <div>
-          <h1 style="margin:0">Oyun</h1>
-          <p style="margin:6px 0 0 0">Zorluk seç, başlat, oyna. Sorular ve şıklar her oyunda değişir.</p>
+  <main class="container">
+    <section class="card">
+      <h1>Yarışma</h1>
+      <p class="lead">Zorluk seç → soruları çöz → skorunu paylaş.</p>
+    </section>
+
+    <!-- Reklam alanı (üst) -->
+    <section class="ad card" aria-label="Reklam Alanı">
+      <p class="ad__title">Reklam Alanı</p>
+      <p class="ad__hint">Onay sonrası buraya reklam yerleştirilecek.</p>
+    </section>
+
+    <section class="card quiz" id="quizApp">
+      <div class="quiz__setup" id="setup">
+        <h2>Başlamadan önce</h2>
+        <label class="field">
+          <span>Zorluk</span>
+          <select id="difficulty">
+            <option value="kolay">Kolay</option>
+            <option value="orta" selected>Orta</option>
+            <option value="zor">Zor</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Soru Sayısı</span>
+          <select id="questionCount">
+            <option value="10">10</option>
+            <option value="15" selected>15</option>
+            <option value="20">20</option>
+          </select>
+        </label>
+
+        <button class="btn primary" id="startBtn">Başlat</button>
+        <p class="muted small">Not: Sorular karıştırılır, her oyunda sıra değişir.</p>
+      </div>
+
+      <div class="quiz__play hidden" id="play">
+        <div class="quiz__meta">
+          <span id="qPos">1/15</span>
+          <span class="pill" id="diffPill">Orta</span>
+          <span id="score">Skor: 0</span>
         </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap">
-          <div class="pill">Soru: <b id="lvl">1</b>/15</div>
-          <div class="pill">Ödül: <b id="score">0</b> ₺</div>
-          <div class="pill">Mod: <b id="mode">—</b></div>
+
+        <h2 class="quiz__question" id="questionText">Soru</h2>
+
+        <div class="quiz__answers" id="answers"></div>
+
+        <div class="quiz__actions">
+          <button class="btn ghost" id="quitBtn">Çık</button>
+          <button class="btn ghost" id="nextBtn" disabled>Devam</button>
         </div>
       </div>
 
-      <div class="barwrap" style="margin-top:12px">
-        <div class="bar"><div id="progress"></div></div>
-      </div>
-
-      <div class="qbox">
-        <div class="qmeta">
-          <div class="tag" id="cat">Kategori: —</div>
-          <div class="tag" id="diff">Zorluk: —</div>
+      <div class="quiz__result hidden" id="result">
+        <h2>Oyun Bitti</h2>
+        <p class="lead" id="resultText"></p>
+        <div class="ctaRow">
+          <button class="btn primary" id="retryBtn">Tekrar Oyna</button>
+          <a class="btn ghost" href="index.html">Ana Sayfa</a>
         </div>
 
-        <div class="selectRow">
-          <div style="flex:1 1 240px">
-            <div class="mini">Zorluk seç</div>
+        <div class="divider"></div>
 
-            <!-- Custom dropdown (select yerine) -->
-            <div class="dd" data-dd="difficulty">
-              <button class="dd-btn" type="button" id="difficultyBtn">Karışık</button>
-              <div class="dd-menu" id="difficultyMenu">
-                <button type="button" data-value="mixed">Karışık</button>
-                <button type="button" data-value="easy">Kolay</button>
-                <button type="button" data-value="medium">Orta</button>
-                <button type="button" data-value="hard">Zor</button>
-              </div>
-            </div>
-            <!-- app.js bozulmasın diye hidden input -->
-            <input type="hidden" id="difficultySelect" value="mixed">
-          </div>
-
-          <div style="flex:1 1 240px">
-            <div class="mini">Tekrar engelleme</div>
-
-            <!-- Custom dropdown (select yerine) -->
-            <div class="dd" data-dd="repeat">
-              <button class="dd-btn" type="button" id="repeatBtn">Sıkı (tekrar minimum)</button>
-              <div class="dd-menu" id="repeatMenu">
-                <button type="button" data-value="strict">Sıkı (tekrar minimum)</button>
-                <button type="button" data-value="relaxed">Rahat</button>
-              </div>
-            </div>
-            <!-- app.js bozulmasın diye hidden input -->
-            <input type="hidden" id="repeatSelect" value="strict">
-          </div>
-        </div>
-
-        <div class="question" id="question">Zorluğu seç, sonra “Oyunu Başlat”a bas.</div>
-        <div class="answers" id="answers"></div>
-
-        <div class="lifelines">
-          <button class="life" id="life5050" type="button">50:50 <small>2 yanlış siler</small></button>
-          <button class="life" id="lifeAudience" type="button">Seyirci <small>Yüzde verir</small></button>
-          <button class="life" id="lifeHint" type="button">İpucu <small>Açıklama</small></button>
-        </div>
-
-        <div class="row">
-          <button class="ghost" id="clearHistoryBtn" type="button">Soru Hafızasını Sıfırla</button>
-          <button class="primary" id="startBtn" type="button">Oyunu Başlat</button>
-        </div>
-
-        <div class="toast">
-          AdSense onay sonrası buraya reklam alanı eklenebilir (ör. sayfa altı banner).
+        <h3>İçeriklere göz at</h3>
+        <p class="muted">Kullanıcıların sitede kalması için bu bölümler önemli (AdSense için de).</p>
+        <div class="grid3">
+          <a class="card card--link" href="futbol-terimleri.html"><strong>Terimler</strong><span class="muted">Kısa tanımlar</span></a>
+          <a class="card card--link" href="efsane-futbolcular.html"><strong>Efsaneler</strong><span class="muted">Kısa biyografi</span></a>
+          <a class="card card--link" href="futbol-bilgileri.html"><strong>Bilgiler</strong><span class="muted">Rekorlar & kupalar</span></a>
         </div>
       </div>
+    </section>
+
+    <!-- Reklam alanı (alt) -->
+    <section class="ad card" aria-label="Reklam Alanı">
+      <p class="ad__title">Reklam Alanı</p>
+      <p class="ad__hint">Onay sonrası buraya reklam yerleştirilecek.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__links">
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+      <a href="gizlilik.html">Gizlilik</a>
+      <a href="cookies.html">Çerezler</a>
+      <a href="sartlar.html">Şartlar</a>
     </div>
-  </div>
+    <p class="muted">© <span id="y"></span> Krampon Quiz</p>
+  </footer>
 
-  <!-- Modal -->
-  <div class="modalBack" id="modalBack" role="dialog" aria-modal="true">
-    <div class="modal">
-      <h3 id="modalTitle">Bilgi</h3>
-      <p id="modalText">—</p>
-      <div class="actions">
-        <button class="primary" id="modalOk" type="button">Tamam</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cookie -->
-  <div class="cookie" id="cookieBanner">
-    <div class="row">
-      <p>
-        Bu site, deneyimi iyileştirmek ve (onay verirsen) reklam/ölçüm amaçlı çerezler kullanabilir.
-        Detay: <a href="cookies.html" style="color:#eaf0ff">Çerez Politikası</a>
-      </p>
-      <div class="actions">
-        <button id="cookieReject" type="button">Reddet</button>
-        <button class="accept" id="cookieAccept" type="button">Kabul Et</button>
-      </div>
-    </div>
-  </div>
-
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script src="assets/app.js"></script>
 </body>
 </html>
