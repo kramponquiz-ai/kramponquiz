@@ -2,31 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://zekifener09-lab.github.io/kramponquiz09/</loc>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/</loc>
   </url>
 
   <url>
-    <loc>https://zekifener09-lab.github.io/kramponquiz09/sinav.html</loc>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/index.html</loc>
   </url>
 
   <url>
-    <loc>https://zekifener09-lab.github.io/kramponquiz09/kurallar.html</loc>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/sinav.html</loc>
   </url>
 
   <url>
-    <loc>https://zekifener09-lab.github.io/kramponquiz09/SSS.html</loc>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/kurallar.html</loc>
   </url>
 
   <url>
-    <loc>https://zekifener09-lab.github.io/kramponquiz09/iletisim.html</loc>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/SSS.html</loc>
   </url>
 
   <url>
-    <loc>https://zekifener09-lab.github.io/kramponquiz09/gizlilik.html</loc>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/iletisim.html</loc>
   </url>
 
   <url>
-    <loc>https://zekifener09-lab.github.io/kramponquiz09/sartlar.html</loc>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/gizlilik.html</loc>
+  </url>
+
+  <url>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/sartlar.html</loc>
+  </url>
+
+  <url>
+    <loc>https://kramponquiz-ai.github.io/kramponquiz/cookies.html</loc>
   </url>
 
 </urlset>
