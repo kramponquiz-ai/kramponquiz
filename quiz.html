@@ -1,23 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Krampon Quiz – Oyun</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Krampon Quiz – Oyna</title>
+  <meta name="description" content="Krampon Quiz oyun ekranı. Soruları cevapla, skor yap!" />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html">Krampon Quiz</a>
+      <nav class="nav">
+        <a class="active" href="quiz.html">Oyna</a>
+        <a href="futbol-terimleri.html">Terimler</a>
+        <a href="efsane-futbolcular.html">Efsaneler</a>
+        <a href="futbol-bilgileri.html">Bilgiler</a>
+      </nav>
+    </div>
+  </header>
 
-  <h1>Krampon Quiz</h1>
+  <main class="container">
+    <section class="card">
+      <h1>Quiz</h1>
+      <p class="muted">Başlat’a bas, sorular gelsin. Doğru +1, yanlış 0.</p>
 
-  <button id="startBtn">Hemen Oyna</button>
+      <div class="row">
+        <label class="select">
+          Zorluk:
+          <select id="difficulty">
+            <option value="easy">Kolay</option>
+            <option value="medium" selected>Orta</option>
+            <option value="hard">Zor</option>
+          </select>
+        </label>
 
-  <div id="game" style="display:none;">
-    <h2>Soru 1</h2>
-    <p>Futbolun kralı kimdir?</p>
+        <button id="startBtn" class="btn btn--primary">Başlat</button>
+        <a class="btn btn--ghost" href="index.html">Ana sayfa</a>
+      </div>
+    </section>
 
-    <button onclick="alert('Doğru!')">Pelé</button>
-    <button onclick="alert('Yanlış')">Messi</button>
-    <button onclick="alert('Yanlış')">Ronaldo</button>
-  </div>
+    <section id="game" class="card" style="display:none;">
+      <div class="game__top">
+        <div><strong>Soru:</strong> <span id="qIndex">1</span>/<span id="qTotal">5</span></div>
+        <div><strong>Skor:</strong> <span id="score">0</span></div>
+      </div>
+
+      <h2 id="question" class="question">Soru metni</h2>
+
+      <div id="answers" class="answers"></div>
+
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+
+      <div class="row">
+        <button id="nextBtn" class="btn btn--primary" style="display:none;">Sonraki</button>
+        <button id="restartBtn" class="btn btn--ghost" style="display:none;">Yeniden Başlat</button>
+      </div>
+    </section>
+  </main>
 
   <script src="assets/quiz.js"></script>
 </body>

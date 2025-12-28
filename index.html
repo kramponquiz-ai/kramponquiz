@@ -3,63 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Krampon Quiz | Futbol Bilgi Yarışması</title>
-  <meta name="description" content="Krampon Quiz ile futbol bilginizi test edin. Zorluk seç, soruları çöz, skorunu paylaş. Futbol terimleri, efsane futbolcular ve kısa futbol bilgileri de burada." />
-  <link rel="canonical" href="https://kramponquiz-ai.github.io/kramponquiz/" />
-  <meta name="theme-color" content="#0b1220" />
+  <title>Krampon Quiz – Futbol Bilgi Yarışması</title>
+  <meta name="description" content="Futbol bilgi yarışması: zorluk seç, soruları çöz, skor yap. Krampon Quiz ile hızlı oyna." />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body class="bg">
+<body>
   <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Krampon Quiz Ana Sayfa">
-      <span class="brand__logo" aria-hidden="true">⚽</span>
-      <span class="brand__name">Krampon Quiz</span>
-    </a>
-    <nav class="nav">
-      <a href="sinav.html">Oyna</a>
-      <a href="futbol-terimleri.html">Terimler</a>
-      <a href="efsane-futbolcular.html">Efsaneler</a>
-      <a href="futbol-bilgileri.html">Bilgiler</a>
-      <a href="SSS.html">SSS</a>
-    </nav>
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html">Krampon Quiz</a>
+      <nav class="nav">
+        <a href="quiz.html">Oyna</a>
+        <a href="futbol-terimleri.html">Terimler</a>
+        <a href="efsane-futbolcular.html">Efsaneler</a>
+        <a href="futbol-bilgileri.html">Bilgiler</a>
+      </nav>
+    </div>
   </header>
 
   <main class="container">
     <section class="hero card">
-      <div class="hero__content">
+      <div class="hero__left">
         <h1>Futbol Bilgi Yarışması</h1>
-        <p class="lead">
-          Zorluk seç, soruları çöz, seri yap. Krampon Quiz; hızlı oynanan bir futbol bilgi yarışmasıdır.
-          Yeni sorularla güncel tutuyoruz. Skorunu paylaş, arkadaşlarınla yarış.
-        </p>
+        <p>Zorluk seç, soruları çöz, seri yap. Krampon Quiz hızlı oynanan bir futbol bilgi yarışmasıdır.</p>
 
-        <div class="ctaRow">
-          <a class="btn primary" href="sinav.html">Hemen Oyna</a>
-          <a class="btn ghost" href="kurallar.html">Kurallar</a>
+        <div class="actions">
+          <a class="btn btn--primary" href="quiz.html">Hemen Oyna</a>
+          <a class="btn btn--ghost" href="rules.html">Kurallar</a>
         </div>
 
-        <ul class="miniPoints">
+        <ul class="checks">
           <li>✅ Zorluk seçimi</li>
           <li>✅ Karışık soru havuzu</li>
           <li>✅ Mobil uyumlu</li>
         </ul>
       </div>
 
-      <div class="hero__side" aria-hidden="true">
-        <div class="heroArt">
-          <div class="ball"></div>
-          <div class="field"></div>
-        </div>
+      <div class="hero__right">
+        <div class="ball"></div>
       </div>
     </section>
 
-    <!-- Reklam alanı (AdSense onayından sonra buraya kod koyacağız) -->
-    <section class="ad card" aria-label="Reklam Alanı">
-      <p class="ad__title">Reklam Alanı</p>
-      <p class="ad__hint">Onay sonrası buraya reklam yerleştirilecek.</p>
-    </section>
-
-    <section class="grid3">
+    <section class="grid">
       <article class="card">
         <h2>Futbol Terimleri</h2>
         <p>Ofsayt, pres, falso, libero… Terimleri kısa ve net anlatıyoruz.</p>
@@ -79,32 +63,16 @@
       </article>
     </section>
 
-    <section class="card">
-      <h2>Bugün ne yapalım?</h2>
-      <p>
-        Hızlı oyun için <a class="inline" <a href="quiz.html">Yarışmaya Başla</a>
-.
-        Daha çok öğrenmek için içerik sayfalarına göz at:
-        <a class="inline" href="futbol-terimleri.html">terimler</a>,
-        <a class="inline" href="efsane-futbolcular.html">efsaneler</a>,
-        <a class="inline" href="futbol-bilgileri.html">bilgiler</a>.
+    <footer class="footer card">
+      <p>© <span id="year"></span> Krampon Quiz</p>
+      <p class="muted">
+        <a href="privacy.html">Gizlilik</a> ·
+        <a href="terms.html">Şartlar</a> ·
+        <a href="contact.html">İletişim</a>
       </p>
-    </section>
+    </footer>
   </main>
 
-  <footer class="footer">
-    <div class="footer__links">
-      <a href="hakkimizda.html">Hakkımızda</a>
-      <a href="iletisim.html">İletişim</a>
-      <a href="gizlilik.html">Gizlilik</a>
-      <a href="cookies.html">Çerezler</a>
-      <a href="sartlar.html">Şartlar</a>
-    </div>
-    <p class="muted">© <span id="y"></span> Krampon Quiz</p>
-  </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  <script src="assets/app.js"></script>
 </body>
 </html>

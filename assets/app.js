@@ -1,9 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const startBtn = document.getElementById("startBtn");
-  const game = document.getElementById("game");
-
-  startBtn.addEventListener("click", function () {
-    startBtn.style.display = "none";
-    game.style.display = "block";
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
 });
